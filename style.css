@@ -1,3 +1,6 @@
+/*-----------------------------------------------------------------------
+                    Versão Mobile
+/*-----------------------------------------------------------------------*/
 @media (max-width: 375px) {
 
 body{
@@ -22,8 +25,7 @@ body{
     position: fixed;
 }
 .logo{
-    width: 75px;
-    height: 53px;
+    width: 70px;
 }
 ion-icon{
     width: 43px;
@@ -38,7 +40,12 @@ ion-icon{
     margin-top: 106px;
     background-color: aqua;
 }
-
+.mensagem{
+    display: flex;
+    align-items: center;
+    padding: 12px 8px 12px 8px;
+    background-color: #AAAAAA;
+}
 
 /*-----------------------------------------------------------------------
                        Rodapé / Caixa de Texto
