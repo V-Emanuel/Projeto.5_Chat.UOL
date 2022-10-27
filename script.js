@@ -1,20 +1,20 @@
-let participantes = {name: ''};
+/*let participantes = {horario, name, texto};*/
 let msn
 
 
-function recebe_mensagens(){
+/*function recebe_mensagens(){
     const promessa = axios.get('https://mock-api.driven.com.br/api/v6/uol/participants');
     promessa.then(processarResposta);
 }
 
 function processarResposta(participantes) {
     alert("Deu certo");
-	console.log(participantes.data);
+	console.log(participantesn.name.data);
 }
-recebe_mensagens();
+recebe_mensagens();*/
 
 function mandar_mensagens(){
-    const mensagens = document.querySelector('caixa_mensagens');
+    const mensagens = document.querySelector('.caixa_mensagens');
     for(i = 0; i < 4; i++){
         msn = `<li class="mensagem">
                     <p class="hora">(23:11:54)</p>
