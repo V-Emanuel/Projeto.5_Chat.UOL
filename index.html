@@ -14,10 +14,14 @@
 <body>
 
     <div class = "entrada aparece">
-        <header class="img_entrada"><img class = "logo_entrada" src="./midia/logo.png"/></header>
+        <header class="borda_vazia"></header>
+        <img class = "logo_entrada" src="./midia/logo.png"/>
         <div class = "caixa_usuario"><input class="nome_usuario" type="test" placeholder="Digite seu nome" /></div>
-        <div class="botao"><button onclick="close_initialPage()" class="entrar">Entrar</button></div>
-        
+        <div class="botao"><button onclick="open_loading()" class="entrar">Entrar</button></div>
+        <div class="carregando some">
+            <img class = "gif" src="./midia/loading.gif" />
+            <p class="loading">Carregando...</p>
+        </div>
     </div>
     <header class="cabecalho">
         <img class = "logo" src="./midia/logo.png"/>
