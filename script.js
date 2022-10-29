@@ -1,22 +1,38 @@
 let usuario = ''; //Nome do usuário do chat
-let msn;
+let mensagens = [];
 
-function mandar_mensagens(){
-    const mensagens = document.querySelector('.caixa_mensagens');
-    for(i = 0; i < 30; i++){
-        msn = `<li class="mensagem">
-                    <p class="hora">(23:11:54)</p>
-                    <p class="nome">Jorge:</p>
-                    <p class ="msn"></p>
-                </li>`
-        mensagens.innerHTML = mensagens.innerHTML + msn;
-    }
+/*------------------------------------------------------------------
+    Carrega as mensagens do servidor para o código HTML
+/*------------------------------------------------------------------*/
+const promessa = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
+promessa.then(respostaChegou);
+
+function respostaChegou(resposta){
+    mensagens = resposta.data;
+    console.log(mensagens);
+    rederizarMensagens();
 }
+
+function rederizarMensagens(){
+    const listaMensagens = document.querySelector('.caixa_mensagens');
+    listaMensagens.innerHTML = '';
+    for(let i = 0; i < 10; i++){
+        let mensagem = mensagens[i];
+        listaMensagens.innerHTML += `
+            <li>
+                <p class = "time" >Testanto aquiiii</p>
+                <p class = "time" > nome : (${mensagem.from})</p>
+            </li>`;
+         console.log('Deu certo');
+    }
+    
+}
+
 /*------------------------------------------------------------------
      Muda a página inicial quando o nome de usuário é inserido e o botão "entrar" é clicado.
 /*------------------------------------------------------------------*/
 
-function close_initialPage(){
+function close_initialPage(){   //Função que fecha a tela inicial
     const page_1 = document.querySelector('.pag_1');
     const page_2 = document.querySelector('.pag_2');
     page_1.classList.remove('aparece');
@@ -25,7 +41,7 @@ function close_initialPage(){
     page_2.classList.add('aparece');
 
 }
-function open_loading(){
+function open_loading(){    //Função que habilita a tela de carregamento após o usuário inserir o nome
     usuario = document.querySelector('.nome_usuario').value;
     const box_usuario = document.querySelector('.caixa_usuario');
     const box_button = document.querySelector('.botao');
@@ -34,22 +50,7 @@ function open_loading(){
         box_usuario.classList.add("some");
         box_button.classList.add("some");
         loading.classList.remove("some");
-        console.log(usuario);
         setTimeout(close_initialPage, 1500); //execulta a função 'close_initialPage()' após 1,5seg.
-        mandar_mensagens();
     }
     
 }
-
-
-
-/*function recebe_mensagens(){
-    const promessa = axios.get('https://mock-api.driven.com.br/api/v6/uol/participants');
-    promessa.then(processarResposta);
-}
-
-function processarResposta(participantes) {
-    alert("Deu certo");
-	console.log(participantesn.name.data);
-}
-recebe_mensagens();*/

@@ -117,7 +117,8 @@ ion-icon{
     padding-bottom: 100px;
     height: 100vh;
     width: 100vw;
-    background-color: aqua;
+    background-color: #F3F3F3;
+    ;
     overflow-y: scroll;
     box-sizing: border-box;
 
@@ -129,7 +130,8 @@ ion-icon{
     display: flex;
     align-items: center;
     padding: 12px 8px 12px 8px;
-    background-color: #AAAAAA;
+    background-color: #DCDCDC;
+    ;
     margin-bottom: 4px;
 }
 
