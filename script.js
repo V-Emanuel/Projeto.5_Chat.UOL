@@ -15,29 +15,33 @@ function respostaChegou(resposta){
 
 function rederizarMensagens(){
     const listaMensagens = document.querySelector('.caixa_mensagens');
-    /*listaMensagens.innerHTML = '';*/
     for(let i = 0; i < mensagens.length; i++){
         let mensagem = mensagens[i];
         if(mensagem.type == "message"){
             listaMensagens.innerHTML += `
-            <li class = "MSG" id = "msg">
-                <p class = "txt" >(${mensagem.time}) ${mensagem.from} para ${mensagem.to}: ${mensagem.text}</p>
+            <li class = "MSG" id = "msg_${i}">
+                <p class = "txt" ><span class ="hora"> (${mensagem.time})</span> 
+                <span class ="negrito"> ${mensagem.from}</span> 
+                para <span class ="negrito">${mensagem.to}</span>: 
+                ${mensagem.text}</p>
             </li>`;
+            document.getElementById(`msg_${i}`).style.backgroundColor = "white";
         }
         if(mensagem.type == "status"){
             listaMensagens.innerHTML += `
-            <li class = "MSG" id = "msg">
-                <p class = "txt" >(${mensagem.time}) ${mensagem.from} ${mensagem.text}</p>
+            <li class = "MSG" id = "msg_${i}">
+                <p class = "txt" ><span class ="hora"> (${mensagem.time})</span>
+                <span class ="negrito"> ${mensagem.from}</span> 
+                ${mensagem.text}</p>
             </li>`;
+            document.getElementById(`msg_${i}`).style.backgroundColor = "#DCDCDC";
         }
         
     } 
 }
-
 /*------------------------------------------------------------------
      Muda a página inicial quando o nome de usuário é inserido e o botão "entrar" é clicado.
 /*------------------------------------------------------------------*/
-
 function close_initialPage(){   //Função que fecha a tela inicial
     const page_1 = document.querySelector('.pag_1');
     const page_2 = document.querySelector('.pag_2');

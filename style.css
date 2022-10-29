@@ -137,9 +137,9 @@ ion-icon{
     display: flex;
     align-items: center;
     width: 100%;
-    height: 40px;
-    background: white;
-    margin-bottom: 4px;
+    padding: 12px 8px 12px 8px;
+    box-sizing: border-box;
+    margin-bottom: 6px;
        
 }
 .txt{
@@ -149,8 +149,12 @@ ion-icon{
     font-style: normal;
     font-weight: 400;
 }
-
-
+.hora{
+    color: #AAAAAA;
+}
+.negrito{
+    font-weight: bold;
+}
 /*-----------------------------------------------------------------------
                        Rodapé / Caixa de Texto
 /*-----------------------------------------------------------------------*/
