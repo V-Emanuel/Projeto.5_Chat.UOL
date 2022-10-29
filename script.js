@@ -9,23 +9,29 @@ promessa.then(respostaChegou);
 
 function respostaChegou(resposta){
     mensagens = resposta.data;
-    console.log(mensagens);
     rederizarMensagens();
+    console.log(mensagens)
 }
 
 function rederizarMensagens(){
     const listaMensagens = document.querySelector('.caixa_mensagens');
-    listaMensagens.innerHTML = '';
-    for(let i = 0; i < 10; i++){
+    /*listaMensagens.innerHTML = '';*/
+    for(let i = 0; i < mensagens.length; i++){
         let mensagem = mensagens[i];
-        listaMensagens.innerHTML += `
-            <li>
-                <p class = "time" >Testanto aquiiii</p>
-                <p class = "time" > nome : (${mensagem.from})</p>
+        if(mensagem.type == "message"){
+            listaMensagens.innerHTML += `
+            <li class = "MSG" id = "msg">
+                <p class = "txt" >(${mensagem.time}) ${mensagem.from} para ${mensagem.to}: ${mensagem.text}</p>
             </li>`;
-         console.log('Deu certo');
-    }
-    
+        }
+        if(mensagem.type == "status"){
+            listaMensagens.innerHTML += `
+            <li class = "MSG" id = "msg">
+                <p class = "txt" >(${mensagem.time}) ${mensagem.from} ${mensagem.text}</p>
+            </li>`;
+        }
+        
+    } 
 }
 
 /*------------------------------------------------------------------
