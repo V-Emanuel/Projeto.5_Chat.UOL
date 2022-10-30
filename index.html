@@ -25,13 +25,33 @@
     <div class="pag_2 some">
         <header class="cabecalho">
             <img class = "logo" src="./midia/logo.png"/>
-            <ion-icon name="people"></ion-icon>
+            <ion-icon name="people" onclick="aparece_lateral()"></ion-icon>
         </header>
         <ul class="caixa_mensagens"></ul>
         <footer class="rodape">
             <input class="caixa_texto" type="test" placeholder="Escreva aqui..." />
-            <ion-icon name="paper-plane-outline"></ion-icon>
+            <ion-icon name="paper-plane-outline" onclick="pega_texto()"></ion-icon>
         </footer>
+    </div>
+    <div class="pag_3 some">
+        <div class="parte_escura"  onclick= "some_lateral()">dfsfsfsfsfsfsfsf</div>
+        <aside class="parte_lateral">
+            <p class="titulo">Escolha um contato
+                para enviar mensagem:</p>
+            <div class="topico">
+                <ion-icon class="icone_topico"  name="people"></ion-icon>
+                <p class="tipo_usuario">Todos</p>
+            </div>
+            <div class="usuarios_ativos"></div>
+            <p class="titulo sub">Escolha a visibilidade:</p>
+            <div class="topico">
+                <ion-icon class="icone_topico"  name="lock-open"></ion-icon>
+                <p class="tipo_usuario">Público</p>
+            </div>
+            <div class="topico">
+                <ion-icon class="icone_topico"  name="lock-closed"></ion-icon>
+                <p class="tipo_usuario">Reservadamente</p>
+        </aside>
     </div>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="script.js"></script>
