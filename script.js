@@ -2,6 +2,13 @@ let usuario = 'Jorge', para = 'Todos', texto = 'A cascavel do piaui', tipo = 'me
 let mensagens = [];
 
 /*------------------------------------------------------------------
+ Sinaliza que usuário entrou na sala e saiu da sala
+/*------------------------------------------------------------------*/
+function entraNaSala(){
+    const nome = {name: usuario};
+    const requisicao = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants ', nome);
+}
+/*------------------------------------------------------------------
      Muda a página inicial quando o nome de usuário é inserido e o botão "entrar" é clicado.
 /*------------------------------------------------------------------*/
 function close_initialPage(){   //Função que fecha a tela inicial
@@ -27,15 +34,16 @@ function open_loading(){    //Função que habilita a tela de carregamento após
 /*------------------------------------------------------------------
     Carrega as mensagens do servidor para o código HTML
 /*------------------------------------------------------------------*/
-const promessa = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
-promessa.then(respostaChegou);
-
+function busca_mensagens(){
+    const promessa = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
+    promessa.then(respostaChegou);
+}
 function respostaChegou(resposta){
     mensagens = resposta.data;
-    rederizarMensagens();
 }
 function rederizarMensagens(){
     const listaMensagens = document.querySelector('.caixa_mensagens');
+    listaMensagens.innerHTML = '';
     for(let i = 0; i < mensagens.length; i++){
         let mensagem = mensagens[i];
         if(mensagem.type == "message"){
@@ -56,9 +64,11 @@ function rederizarMensagens(){
                 ${mensagem.text}</p>
             </li>`;
             document.getElementById(`msg_${i}`).style.backgroundColor = "#DCDCDC";
-        }     
-    } 
+        }
+    }
 }
+setInterval(busca_mensagens, 3000);
+setInterval(rederizarMensagens, 3000);
 /*------------------------------------------------------------------
     Aparece e oculta barra lateral
 /*------------------------------------------------------------------*/
@@ -72,6 +82,3 @@ function some_lateral(){
     lateral.classList.add('some');
     lateral.classList.remove('aparece');
 }
-/*------------------------------------------------------------------
- Sinaliza que usuário entrou na sala e saiu da sala
-/*------------------------------------------------------------------*/

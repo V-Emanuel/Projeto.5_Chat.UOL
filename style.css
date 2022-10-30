@@ -140,6 +140,7 @@
         padding: 12px 8px 12px 8px;
         box-sizing: border-box;
         margin-bottom: 6px;
+        overflow-wrap: anywhere;
            
     }
     .txt{
@@ -158,7 +159,7 @@
     /*-----------------------------------------------------------------------
                            Rodapé / Caixa de Texto
     /*-----------------------------------------------------------------------*/
-    .rodape{
+.rodape{
         width: 100%;
         height: 80px;
         padding: 0px 18px 0px 18px;
@@ -206,6 +207,10 @@
         flex-direction: column;
         position: fixed;
         z-index: 7;
+        transition-property: width;
+        transition-duration: 2s;
+        transition-timing-function: linear;
+        transition-delay: 1s;
     }
     .titulo{
         width: 100%;
