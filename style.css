@@ -1,9 +1,9 @@
 /*-----------------------------------------------------------------------
                     Versão Mobile
 /*-----------------------------------------------------------------------*/
-@media (max-width: 375px) {
 
-    body{
+
+body{
         background-color: #F3F3F3;
         ;
         display: flex;
@@ -249,7 +249,7 @@
         font-family: 'Roboto';
         font-style: normal;
     }
-    }
+    
     .aparece{
         display: flex;
     }

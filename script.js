@@ -72,6 +72,11 @@ function rederizarMensagens(){
 /*------------------------------------------------------------------
     Envia Mensagens para o chat
 /*------------------------------------------------------------------*/
+document.addEventListener("keypress", function(e){ //Execulta a função pega_texto clicando no enter
+    if(e.key === "Enter"){
+        pega_texto();
+    }
+});
 function pega_texto(){
     let text_box = document.querySelector('.caixa_texto').value;
     let messagem_digitada = {
@@ -83,8 +88,6 @@ function pega_texto(){
     axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', messagem_digitada);
     rederizarMensagens();
     document.querySelector('.caixa_texto').value='';//Limpa caixa de texto
-
-
 }
 /*------------------------------------------------------------------
     Recarrega as funções a cada 1s
