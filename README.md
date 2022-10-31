@@ -10,7 +10,7 @@
 </br>
 
 ## ✏️ Descrição
-<p align="justify" >Bunscando aprender conceitos de comunicação com APIs, foi desenvolvido uma cópia do antigo fórum de de bate-papo da UOL. Para acessar basta inserir seu nome que uma nova tela irá carregar para que você consiga encaminhar mensagens para outros usuários que estejam logados na sala de bate-papo</p>
+<p align="justify" >Bunscando aprender conceitos de comunicação com APIs, foi desenvolvido uma cópia do antigo fórum de bate-papo da UOL. Para acessar basta inserir seu nome que uma nova tela irá carregar para que você consiga encaminhar mensagens para outros usuários que estejam logados na sala de bate-papo</p>
 <p align="justify" >Para acessá-lo basta acessar o link: https://v-emanuel.github.io/Projeto.5_Chat.UOL/</p>
 
 </br>
