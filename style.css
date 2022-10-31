@@ -27,7 +27,7 @@
         height: 8%;
     }
     .logo_entrada{
-        height: 110px;
+        height: 160px;
     }
     .caixa_usuario{
         height: 20%;
@@ -131,7 +131,7 @@
         padding: 12px 8px 12px 8px;
         background-color: #DCDCDC;
         ;
-        margin-bottom: 4px;
+        margin-bottom: 2px;
     }
     .MSG{
         display: flex;

@@ -6,12 +6,9 @@ let mensagens = [];
 /*------------------------------------------------------------------*/
 function enviaNome(){
     let nome = {name: usuario};
-    const promisse = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", nome);
+    axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", nome);
+    axios.post("https://mock-api.driven.com.br/api/v6/uol/status", nome);
     rederizarMensagens();
-}
-function mantemConexao(){
-    let nome = {name: usuario};
-    const promisse = axios.post("https://mock-api.driven.com.br/api/v6/uol/status", nome);
 }
 /*------------------------------------------------------------------
      Muda a página inicial quando o nome de usuário é inserido e o botão "entrar" é clicado.
@@ -72,9 +69,28 @@ function rederizarMensagens(){
         }
     }
 }
-setInterval(busca_mensagens, 3000);
-setInterval(enviaNome, 3000);
-setInterval(mantemConexao, 5000);
+/*------------------------------------------------------------------
+    Envia Mensagens para o chat
+/*------------------------------------------------------------------*/
+function pega_texto(){
+    let text_box = document.querySelector('.caixa_texto').value;
+    let messagem_digitada = {
+        from: usuario,
+        to: "Todos",
+        text: text_box,
+        type: "message" // ou "private_message" para o bônus
+    }
+    axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', messagem_digitada);
+    rederizarMensagens();
+    document.querySelector('.caixa_texto').value='';//Limpa caixa de texto
+
+
+}
+/*------------------------------------------------------------------
+    Recarrega as funções a cada 1s
+/*------------------------------------------------------------------*/
+setInterval(busca_mensagens, 1000);
+setInterval(enviaNome, 1000);
 /*------------------------------------------------------------------
     Aparece e oculta barra lateral
 /*------------------------------------------------------------------*/
