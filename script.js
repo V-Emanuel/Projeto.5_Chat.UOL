@@ -1,12 +1,13 @@
-let usuario = 'Jorge', para = 'Todos', texto = 'A cascavel do piaui', tipo = 'message'; //Nome do usuário do chat
+let usuario = 'nome_teste', para = 'Todos', texto = 'A cascavel do piaui', tipo = 'message'; //Nome do usuário do chat
 let mensagens = [];
 
 /*------------------------------------------------------------------
  Sinaliza que usuário entrou na sala e saiu da sala
 /*------------------------------------------------------------------*/
-function entraNaSala(){
-    const nome = {name: usuario};
-    const requisicao = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants ', nome);
+function enviaNome(){
+    let nome = {name: usuario};
+    const promisse = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", nome);
+    rederizarMensagens();
 }
 /*------------------------------------------------------------------
      Muda a página inicial quando o nome de usuário é inserido e o botão "entrar" é clicado.
@@ -68,7 +69,7 @@ function rederizarMensagens(){
     }
 }
 setInterval(busca_mensagens, 3000);
-setInterval(rederizarMensagens, 3000);
+setInterval(enviaNome, 3000);
 /*------------------------------------------------------------------
     Aparece e oculta barra lateral
 /*------------------------------------------------------------------*/
